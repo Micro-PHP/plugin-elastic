@@ -1,0 +1,22 @@
+{
+    "name": "micro/plugin-elastic",
+    "description": "Micro Framework: Elasticsearch plugin",
+    "type": "library",
+    "version": "1.0",
+    "require": {
+        "micro/kernel": "^1",
+        "elasticsearch/elasticsearch": "^8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Micro\\Plugin\\Elastic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stanislau Komar",
+            "email": "head.trackingsoft@gmail.com"
+        }
+    ]
+}
