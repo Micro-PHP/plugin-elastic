@@ -1,45 +1,55 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ *  This file is part of the Micro framework package.
+ *
+ *  (c) Stanislau Komar <kost@micro-php.net>
+ *
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
+ */
+
 namespace Micro\Plugin\Elastic\Client\Factory;
 
-use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
+use Elastic\Elasticsearch\ClientInterface;
 use Micro\Plugin\Elastic\Configuration\ElasticPluginConfigurationInterface;
-use Micro\Plugin\Logger\LoggerFacadeInterface;
+use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
 
 class ElasticClientFactory implements ElasticClientFactoryInterface
 {
     /**
      * @param ElasticPluginConfigurationInterface $pluginConfiguration
-     * @param LoggerFacadeInterface $loggerFacade
+     * @param LoggerFacadeInterface               $loggerFacade
      */
     public function __construct(
         private readonly ElasticPluginConfigurationInterface $pluginConfiguration,
         private readonly LoggerFacadeInterface $loggerFacade
-    )
-    {
+    ) {
     }
 
     /**
      * {@inheritDoc}
      */
-    public function create(string $clientName): Client
+    public function create(string $clientName): ClientInterface
     {
         $clientConfiguration = $this->pluginConfiguration->getClientConfiguration($clientName);
         $builder = ClientBuilder::create()->setHosts($clientConfiguration->getHosts());
 
         $basicLogin = $clientConfiguration->getBasicAuthLogin();
-        if($basicLogin) {
+        if (!empty($basicLogin)) {
             $builder->setBasicAuthentication($basicLogin, $clientConfiguration->getBasicAuthPassword());
         }
 
         $apiKey = $clientConfiguration->getApiKey();
-        if($apiKey) {
+        if ($apiKey) {
             $builder->setApiKey($apiKey);
         }
 
         $elasticCloudId = $clientConfiguration->getElasticCloudId();
-        if($elasticCloudId) {
+        if ($elasticCloudId) {
             $builder->setElasticCloudId($elasticCloudId);
         }
 
@@ -50,12 +60,12 @@ class ElasticClientFactory implements ElasticClientFactoryInterface
         $builder->setSSLVerification($clientConfiguration->getSslVerification());
 
         $caBundle = $clientConfiguration->getCABundle();
-        if($caBundle) {
+        if ($caBundle) {
             $builder->setCABundle($caBundle);
         }
 
         $sslKey = $clientConfiguration->getSslKey();
-        if($sslKey) {
+        if ($sslKey) {
             $builder->setSSLKey($sslKey, $clientConfiguration->getSslKeyPassword());
         }
 
