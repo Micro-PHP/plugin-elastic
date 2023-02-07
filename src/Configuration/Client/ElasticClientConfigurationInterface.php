@@ -1,11 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ *  This file is part of the Micro framework package.
+ *
+ *  (c) Stanislau Komar <kost@micro-php.net>
+ *
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
+ */
+
 namespace Micro\Plugin\Elastic\Configuration\Client;
 
 interface ElasticClientConfigurationInterface
 {
     /**
-     * Example: localhostL9200,elastic:9200
+     * Example: localhostL9200,elastic:9200.
      *
      * @return string[]
      */
@@ -27,14 +38,14 @@ interface ElasticClientConfigurationInterface
     public function getSslVerification(): bool;
 
     /**
-     * The name of a file containing a private SSL key
+     * The name of a file containing a private SSL key.
      *
      * @return string|null
      */
     public function getSslKey(): string|null;
 
     /**
-     * If the private key requires a password
+     * If the private key requires a password.
      *
      * @return string|null
      */
@@ -46,14 +57,14 @@ interface ElasticClientConfigurationInterface
     public function getApiKey(): string|null;
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getBasicAuthLogin(): string|null;
+    public function getBasicAuthLogin(): string;
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getBasicAuthPassword(): string|null;
+    public function getBasicAuthPassword(): string;
 
     /**
      * @return string|null
@@ -61,7 +72,7 @@ interface ElasticClientConfigurationInterface
     public function getElasticCloudId(): string|null;
 
     /**
-     * The name of a file containing a PEM formatted certificate
+     * The name of a file containing a PEM formatted certificate.
      *
      * @return string|null
      */

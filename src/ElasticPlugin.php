@@ -1,25 +1,42 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ *  This file is part of the Micro framework package.
+ *
+ *  (c) Stanislau Komar <kost@micro-php.net>
+ *
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
+ */
+
 namespace Micro\Plugin\Elastic;
 
 use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\AbstractPlugin;
+use Micro\Framework\Kernel\Plugin\ConfigurableInterface;
+use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
+use Micro\Framework\Kernel\Plugin\PluginConfigurationTrait;
+use Micro\Framework\Kernel\Plugin\PluginDependedInterface;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactory;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactoryInterface;
 use Micro\Plugin\Elastic\Configuration\ElasticPluginConfigurationInterface;
 use Micro\Plugin\Elastic\Facade\ElasticFacade;
 use Micro\Plugin\Elastic\Facade\ElasticFacadeInterface;
-use Micro\Plugin\Logger\LoggerFacadeInterface;
+use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
+use Micro\Plugin\Logger\LoggerPlugin;
 
 /**
  * @method ElasticPluginConfigurationInterface configuration()
  */
-class ElasticPlugin extends AbstractPlugin
+class ElasticPlugin implements DependencyProviderInterface, ConfigurableInterface, PluginDependedInterface
 {
+    use PluginConfigurationTrait;
+
     /**
      * @var LoggerFacadeInterface
      */
-    private readonly LoggerFacadeInterface $loggerFacade;
+    private LoggerFacadeInterface $loggerFacade;
 
     /**
      * {@inheritDoc}
@@ -54,5 +71,12 @@ class ElasticPlugin extends AbstractPlugin
         return new ElasticFacade(
             $this->createElasticClientFactory()
         );
+    }
+
+    public function getDependedPlugins(): iterable
+    {
+        return [
+            LoggerPlugin::class,
+        ];
     }
 }
