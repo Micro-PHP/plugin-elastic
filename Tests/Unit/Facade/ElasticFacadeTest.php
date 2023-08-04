@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Elastic\Test\Unit\Facade;
+namespace Micro\Plugin\Elastic\Tests\Unit\Facade;
 
 use Elastic\Elasticsearch\ClientInterface;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactoryInterface;

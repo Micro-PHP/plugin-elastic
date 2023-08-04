@@ -11,10 +11,10 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Elastic\Test\Unit\Client\Factory;
+namespace Micro\Plugin\Elastic\Tests\Unit\Client\Factory;
 
-use Micro\Framework\Kernel\Configuration\ApplicationConfigurationInterface;
-use Micro\Framework\Kernel\Configuration\DefaultApplicationConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\ApplicationConfigurationInterface;
+use Micro\Framework\BootConfiguration\Configuration\DefaultApplicationConfiguration;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactory;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactoryInterface;
 use Micro\Plugin\Elastic\Configuration\ElasticPluginConfigurationInterface;

@@ -11,9 +11,9 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Elastic\Test\Unit\Configuration\Client;
+namespace Micro\Plugin\Elastic\Tests\Unit\Configuration\Client;
 
-use Micro\Framework\Kernel\Configuration\DefaultApplicationConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\DefaultApplicationConfiguration;
 use Micro\Plugin\Elastic\Configuration\Client\ElasticClientConfigurationInterface;
 use Micro\Plugin\Elastic\ElasticPluginConfiguration;
 use PHPUnit\Framework\TestCase;

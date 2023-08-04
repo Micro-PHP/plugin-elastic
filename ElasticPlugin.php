@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Micro\Plugin\Elastic;
 
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\ConfigurableInterface;
-use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
-use Micro\Framework\Kernel\Plugin\PluginConfigurationTrait;
-use Micro\Framework\Kernel\Plugin\PluginDependedInterface;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootConfiguration\Plugin\ConfigurableInterface;
+use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
+use Micro\Framework\BootConfiguration\Plugin\PluginConfigurationTrait;
+use Micro\Framework\BootPluginDependent\Plugin\PluginDependedInterface;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactory;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactoryInterface;
 use Micro\Plugin\Elastic\Configuration\ElasticPluginConfigurationInterface;

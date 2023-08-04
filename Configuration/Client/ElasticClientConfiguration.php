@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Micro\Plugin\Elastic\Configuration\Client;
 
-use Micro\Framework\Kernel\Configuration\PluginRoutingKeyConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginRoutingKeyConfiguration;
 use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
 
 class ElasticClientConfiguration extends PluginRoutingKeyConfiguration implements ElasticClientConfigurationInterface
