@@ -38,9 +38,6 @@ class ElasticPlugin implements DependencyProviderInterface, ConfigurableInterfac
      */
     private LoggerFacadeInterface $loggerFacade;
 
-    /**
-     * {@inheritDoc}
-     */
     public function provideDependencies(Container $container): void
     {
         $container->register(ElasticFacadeInterface::class, function (

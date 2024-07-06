@@ -18,15 +18,15 @@ use Elastic\Elasticsearch\ClientInterface;
 use Micro\Plugin\Elastic\Configuration\ElasticPluginConfigurationInterface;
 use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
 
-class ElasticClientFactory implements ElasticClientFactoryInterface
+readonly class ElasticClientFactory implements ElasticClientFactoryInterface
 {
     /**
      * @param ElasticPluginConfigurationInterface $pluginConfiguration
      * @param LoggerFacadeInterface               $loggerFacade
      */
     public function __construct(
-        private readonly ElasticPluginConfigurationInterface $pluginConfiguration,
-        private readonly LoggerFacadeInterface $loggerFacade
+        private ElasticPluginConfigurationInterface $pluginConfiguration,
+        private LoggerFacadeInterface $loggerFacade
     ) {
     }
 

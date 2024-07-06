@@ -19,11 +19,7 @@ use Elastic\Elasticsearch\Exception\AuthenticationException;
 interface ElasticClientFactoryInterface
 {
     /**
-     * @param string $clientName
-     *
      * @throws AuthenticationException
-     *
-     * @return ClientInterface
      */
     public function create(string $clientName): ClientInterface;
 }

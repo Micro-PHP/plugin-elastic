@@ -17,13 +17,13 @@ use Elastic\Elasticsearch\ClientInterface;
 use Micro\Plugin\Elastic\Client\Factory\ElasticClientFactoryInterface;
 use Micro\Plugin\Elastic\Configuration\ElasticPluginConfigurationInterface;
 
-class ElasticFacade implements ElasticFacadeInterface
+readonly class ElasticFacade implements ElasticFacadeInterface
 {
     /**
      * @param ElasticClientFactoryInterface $elasticClientFactory
      */
     public function __construct(
-        private readonly ElasticClientFactoryInterface $elasticClientFactory
+        private ElasticClientFactoryInterface $elasticClientFactory
     ) {
     }
 
